@@ -5,11 +5,13 @@ public class Node {
 	private int content;
 	private Node next;
 	
+	/*Constructor*/
 	public Node(int content, Node next) {
 		this.content = content;
 		this.next = next;
 	}
 
+	//getters y setters
 	public int getContent() {
 		return content;
 	}

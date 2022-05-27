@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class Ejercicio1 {
 	
-	/**Ejercicio 1: Queremos desarrollar un programa Java que sea capaz de analizar la informaci�n de un
-	fichero de texto. El algoritmo recibe como par�metro la direcci�n de un fichero de texto junto a una
+	/**Ejercicio 1: Queremos desarrollar un programa Java que sea capaz de analizar la información de un
+	fichero de texto. El algoritmo recibe como parámetro la dirección de un fichero de texto junto a una
 	letra del abecedario. El resultado debe mostrar por pantalla cada una de las palabras del texto que
 	empiezan o terminan con dicha letra, junto a la l�nea en la que se encuentran.
-	Con la finalidad de que la informaci�n mostrada por el algoritmo sea persistente, el programa
-	deber� almacenarla en una Base de Datos formada por una �nica tabla, con la siguiente estructura:**/
+	Con la finalidad de que la información mostrada por el algoritmo sea persistente, el programa
+	deberá almacenarla en una Base de Datos formada por una única tabla, con la siguiente estructura:**/
 	
 	/**
 	 * Pre:-----------
@@ -42,7 +42,7 @@ public class Ejercicio1 {
 			int num = 0;
 			while(f.hasNextLine()) {
 				num++;
-				String linea = f.nextLine().replaceAll(",", "").replaceAll("\\.", "").replaceAll("�", "").replaceAll("\\?", "").trim();
+				String linea = f.nextLine().replaceAll(",", "").replaceAll("\\.", "").replaceAll("¿", "").replaceAll("\\?", "").trim();
 				String[] palabras = linea.split(" ");
 				for(int i = 0; i < palabras.length; i++) {
 					if(palabras[i].substring(0, 1).equalsIgnoreCase(letra) ||
