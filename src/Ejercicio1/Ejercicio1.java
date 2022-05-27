@@ -7,16 +7,17 @@ import java.util.Scanner;
 
 public class Ejercicio1 {
 	
-	/**Ejercicio 1: Queremos desarrollar un programa Java que sea capaz de analizar la información de un
-	fichero de texto. El algoritmo recibe como parámetro la dirección de un fichero de texto junto a una
+	/**Ejercicio 1: Queremos desarrollar un programa Java que sea capaz de analizar la informaciï¿½n de un
+	fichero de texto. El algoritmo recibe como parï¿½metro la direcciï¿½n de un fichero de texto junto a una
 	letra del abecedario. El resultado debe mostrar por pantalla cada una de las palabras del texto que
-	empiezan o terminan con dicha letra, junto a la línea en la que se encuentran.
-	Con la finalidad de que la información mostrada por el algoritmo sea persistente, el programa
-	deberá almacenarla en una Base de Datos formada por una única tabla, con la siguiente estructura:**/
+	empiezan o terminan con dicha letra, junto a la lï¿½nea en la que se encuentran.
+	Con la finalidad de que la informaciï¿½n mostrada por el algoritmo sea persistente, el programa
+	deberï¿½ almacenarla en una Base de Datos formada por una ï¿½nica tabla, con la siguiente estructura:**/
 	
 	/**
 	 * Pre:-----------
-	 * Post: Metodo que ejecuta el programa
+	 * Post: Metodo que ejecuta el programa y pregunta al usuario por una letra para buscar
+	 * cuales empiezan y acaban por dicha letra
 	 */
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
@@ -29,9 +30,11 @@ public class Ejercicio1 {
 	
 	/**
 	 * Pre:-----------
-	 * Post:
+	 * Post: Metodo que pasado una letra y nos agrega a la base los que acaban y empiezan 
+	 * por ella
 	 */
 	public static void direccion(String fichero, String letra) {
+		MySQL sql = new MySQL();
 		File file = new File(fichero);
 		ArrayList<Palabra> lista = new ArrayList<Palabra>();
 		try {
@@ -39,17 +42,29 @@ public class Ejercicio1 {
 			int num = 0;
 			while(f.hasNextLine()) {
 				num++;
-				String linea = f.nextLine().replaceAll(",", "").replaceAll("\\.", "").replaceAll("¿", "").replaceAll("\\?", "").trim();
+				String linea = f.nextLine().replaceAll(",", "").replaceAll("\\.", "").replaceAll("ï¿½", "").replaceAll("\\?", "").trim();
 				String[] palabras = linea.split(" ");
 				for(int i = 0; i < palabras.length; i++) {
 					if(palabras[i].substring(0, 1).equalsIgnoreCase(letra) ||
 							palabras[i].substring(palabras[i].length()-1, palabras[i].length()).
 							equalsIgnoreCase(letra)) {
-						System.out.println(" Palabra=" + palabras[i].trim() + " Linea=" + num);
+						lista.add(new Palabra(palabras[i].trim(), num));
 					} 
 				}
 			}
+			for(Palabra p : lista) {
+				try {
+					sql.setDataBase(p);		
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 			f.close();
+			try {
+				sql.readDataBase();	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} catch(FileNotFoundException e) {
 			System.out.println("El fichero " + fichero + " no ha podido ser abierto.");
 		}
