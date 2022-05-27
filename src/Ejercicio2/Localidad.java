@@ -30,6 +30,11 @@ public class Localidad  implements Comparable <Localidad> {
 		this.divorcios = divorcios;
 	}
 	
+	/**
+	 * Pre:-----------
+	 * Post: Metodo CompareTo que compara la cantidad de divorcios de una
+	 * localidad y las ordena
+	 */
 	@Override
 	public int compareTo(Localidad o) {
 		if(o.getDivorcios() < divorcios){

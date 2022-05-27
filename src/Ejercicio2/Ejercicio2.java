@@ -18,8 +18,7 @@ public class Ejercicio2 {
 	/**
 	 * Pre:-----------
 	 * Post: Metodo que ejecuta el programa y pasa una direccion de file al metodo divorciados
-	 */
-	
+	 */	
 	public static void main(String[] args) {
 		divorcios("C:/examenprog3evau/Divorcios.csv");
 	}

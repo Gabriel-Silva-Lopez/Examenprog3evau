@@ -2,13 +2,14 @@ package Ejercicio3;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class Simplelinkedlist {
+	/*Este es la lista enlazada simple del ejercicio3 para hacer una lista de entero*/
 	private Node first;
 	//private Node last;
 	private int size;
 	
+	//constructores
 	public Simplelinkedlist () {
 		this.first = null;
 		this.size = 0;
@@ -19,6 +20,7 @@ public class Simplelinkedlist {
 		this.size = 1;
 	}
 
+	//getters y setters
 	public Node getFirst() {
 		return first;
 	}
@@ -35,6 +37,10 @@ public class Simplelinkedlist {
 		this.size = size;
 	}
 	
+	/**
+	 * Pre:-----------
+	 * Post: Metodo para añadir un nodo a la lista enlazada
+	 */
 	public boolean add(Node node) {
 		try {
 			if(size == 0) {
@@ -55,6 +61,10 @@ public class Simplelinkedlist {
 		}
 	}
 	
+	/**
+	 * Pre:-----------
+	 * Post: Metodo para añadir un nodo a la lista enlazada desde una posicion
+	 */
 	public boolean add(int position, Node node) {
 		try {
 			if(position == 0) {
@@ -79,6 +89,10 @@ public class Simplelinkedlist {
 		}
 	}
 	
+	/**
+	 * Pre:-----------
+	 * Post: Metodo para borrar un nodo de la lista enlazada
+	 */
 	public boolean delete(int position) {
 		try {
 			Node p = first;
@@ -103,6 +117,10 @@ public class Simplelinkedlist {
 		}
 	}
 	
+	/**
+	 * Pre:-----------
+	 * Post: Metodo para recuperar un nodo
+	 */
 	public Node get(int position) {
 		try {
 
@@ -121,6 +139,10 @@ public class Simplelinkedlist {
 		}
 	}
 	
+	/**
+	 * Pre:-----------
+	 * Post: Metodo que muestra por pantalla la lista enlazada
+	 */
 	public void show() {
 		Node p = first;
 		for(int i = 0; i < size; i++) {
@@ -129,6 +151,10 @@ public class Simplelinkedlist {
 		}
 	}
 	
+	/**
+	 * Pre:-----------
+	 * Post: Metodo que elimina el nodo que contiene el numero mayor de una lista
+	 */
 	public void eliminarMayor () {
 		Node p = first;
 		ArrayList <Integer> enteros = new ArrayList<Integer>();
@@ -138,10 +164,13 @@ public class Simplelinkedlist {
 						p = p.getNext();
 			}
 			Collections.sort(enteros);
+			int mayor = enteros.get(enteros.size()-1);
+			p = first;
 			for(int i = 0; i < size; i++) {
-				if(p.getContent() == enteros.get(0)) {
+				if(p.getContent() == mayor) {
 					delete(i);
 				}
+				p = p.getNext();
 			}
 		}
 	}

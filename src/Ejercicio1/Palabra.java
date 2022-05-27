@@ -1,9 +1,9 @@
 package Ejercicio1;
 
 public class Palabra {
-	/*
-	 * Constructor para palabras
-	 */
+	/*Este es el objeto palabra que contiene la palabra y su linea para ser añadidas
+	 * en la base de datos*/
+	
 	private String str;
 	private int linea;
 	

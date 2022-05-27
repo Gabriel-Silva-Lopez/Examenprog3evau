@@ -80,9 +80,9 @@ public class MySQL {
 			private void writeResultSet(ResultSet resultSet) throws SQLException {
 				while (resultSet.next()) {
 					String palabra = resultSet.getString(2);
-				   int linea = resultSet.getInt(3);
-				   System.out.println("\tpalabra: " + palabra);
-				   System.out.println("\tLinea: " + linea);
+					int linea = resultSet.getInt(3);
+					System.out.println("\tpalabra: " + palabra);
+					System.out.println("\tLinea: " + linea);
 				}
 			}
 			

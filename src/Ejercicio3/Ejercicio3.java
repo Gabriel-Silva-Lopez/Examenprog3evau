@@ -8,7 +8,7 @@ public class Ejercicio3 {
 	
 	/**
 	 * Pre:-----------
-	 * Post: 
+	 * Post: Metodo main que crea una lista de nodos y elmina el mayor
 	 */
 	public static void main(String[] args) {
 		Simplelinkedlist l = new Simplelinkedlist();
@@ -26,6 +26,9 @@ public class Ejercicio3 {
 		System.out.println("----------------");
 		Node n4 = new Node(75, null);
 		l.add(n4);
+		l.show();
+		System.out.println("----------------");
+		l.eliminarMayor();
 		l.show();
 		System.out.println("----------------");
 		l.eliminarMayor();
